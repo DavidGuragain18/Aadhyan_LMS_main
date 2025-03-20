@@ -24,7 +24,7 @@ app.use(acceptMultimedia());
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.send('Hello, My name is David Guragain');
+    res.send('Hello, My name is Roshan Kumar Khadka');
 });
 
 app.use('/api', require('./routes/userRoute'));
@@ -32,5 +32,5 @@ app.use('/api', require('./routes/courseRoute'));
 app.use('/api', require('./routes/bookRoutes'));
 
 app.listen(PORT, () => {
-    console.log(`Server is Running on port http://localhost:${PORT}`);
+    console.log(`Server is Running on port ${PORT}`);
 });

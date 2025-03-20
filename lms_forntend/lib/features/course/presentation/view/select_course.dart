@@ -132,7 +132,7 @@ class _SelectCourseViewState extends ConsumerState<SelectCourseView> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       ref.read(courseViewModelProvider.notifier).getCourse();
     });
   }

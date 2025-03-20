@@ -118,7 +118,7 @@ class BookComplterRemoteDatasource {
           statusCode: response.statusCode.toString(),
         ));
       }
-    } on DioException catch (e) {
+    } on DioError catch (e) {
       return Left(Failure(error: e.message.toString()));
     } catch (e) {
       return Left(Failure(error: 'An Unexpected Error Occurred'));

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:learn_management_system/features/auth/domain/entity/auth_entity.dart';
 
 class AuthState {

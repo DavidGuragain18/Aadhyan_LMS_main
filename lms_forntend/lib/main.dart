@@ -5,4 +5,3 @@ import 'package:learn_management_system/core/app.dart';
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
-      

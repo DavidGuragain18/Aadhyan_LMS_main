@@ -1,3 +1,7 @@
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/scroll_view.dart';
+import 'package:learn_management_system/features/book/model/book_model.dart';
 import 'package:learn_management_system/features/competedbook/data/model/book_completed_model.dart';
 
 class BookCompltedState {

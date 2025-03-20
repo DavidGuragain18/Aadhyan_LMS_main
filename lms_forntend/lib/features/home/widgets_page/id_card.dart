@@ -93,7 +93,7 @@ class _IdCardState extends ConsumerState<IdCard> {
                             radius: 50,
                             backgroundImage: profile?.image != null &&
                                     profile!.image!.isNotEmpty
-                                ? NetworkImage(profile.image!)
+                                ? NetworkImage(profile!.image!)
                                 : AssetImage('assets/images/login_icon.png'),
                           ),
                         ),

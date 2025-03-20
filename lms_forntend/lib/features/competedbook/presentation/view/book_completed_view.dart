@@ -23,7 +23,7 @@ class _BookCompletedViewState extends ConsumerState<BookCompletedView> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       ref.read(bookCompletedViewModelProvider.notifier).fetchCompletedBooks();
     });
     super.initState();

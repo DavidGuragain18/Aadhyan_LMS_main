@@ -49,15 +49,18 @@ class _LoginViewState extends ConsumerState<LoginView> {
     String? savedUserName = await flutterSecureStorage.read(key: 'userName');
     String? savedPassword = await flutterSecureStorage.read(key: 'password');
 
-    setState(() {
-      if (savedUserName != null) {
+    if (savedUserName != null) {
+      setState(() {
         _userNameController.text = savedUserName;
         rememberMe = true;
-      }
-      if (savedPassword != null) {
+      });
+    }
+
+    if (savedPassword != null) {
+      setState(() {
         _passwordController.text = savedPassword;
-      }
-    });
+      });
+    }
   }
 
   @override
@@ -126,19 +129,11 @@ class _LoginViewState extends ConsumerState<LoginView> {
   }
 
   Future<void> _authenticateUser() async {
-    try {
-      bool isAuthenticated = await localAuthentication.authenticate(
-        localizedReason: 'Authenticate to login',
-        options: const AuthenticationOptions(
-          stickyAuth: true,
-          biometricOnly: true,
-        ),
-      );
-      if (isAuthenticated) {
-        await getDataAfterLoginWithBiometric();
-      }
-    } catch (e) {
-      EasyLoading.showError("Biometric authentication failed: ${e.toString()}");
+    bool isAuthenticated = await localAuthentication.authenticate(
+      localizedReason: 'Authenticate to login',
+    );
+    if (isAuthenticated) {
+      await getDataAfterLoginWithBiometric();
     }
   }
 
@@ -264,10 +259,10 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     onPressed: () {
                       if (key.currentState!.validate()) {
                         ref.read(authViewModelProvider.notifier).login(
-                              _userNameController.text.trim(),
-                              _passwordController.text.trim(),
-                              context,
-                            );
+                          _userNameController.text.trim(),
+                          _passwordController.text.trim(),
+                          context,
+                        );
                       }
                     },
                     child: const ReusableText(
@@ -278,7 +273,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  if (_isBiometricLoginEnabled && _isBiometricAvailable)
+                  // if (_isBiometricLoginEnabled &&
+                  //     Platform.isAndroid &&
+                  //     _isBiometricAvailable)
                     InkWell(
                       onTap: () async {
                         if (Platform.isAndroid || Platform.isIOS) {

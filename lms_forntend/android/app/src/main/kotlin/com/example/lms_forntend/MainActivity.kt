@@ -1,4 +1,4 @@
-package com.example.lms_frontend
+package com.example.lms_forntend
 
 import io.flutter.embedding.android.FlutterActivity
 

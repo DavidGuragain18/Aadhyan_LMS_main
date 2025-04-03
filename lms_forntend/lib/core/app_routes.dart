@@ -31,7 +31,8 @@ class AppRoute {
   static String booksViewRoute = '/booksViewRoute';
   static String searchpageViewRoute = '/searchpageViewRoute';
   static String bookCompletedViewRoute = '/bookCompletedViewRoute';
-  static String bookCompleteddetaildViewRoute = '/bookCompleteddetaildViewRoute';
+  static String bookCompleteddetaildViewRoute =
+      '/bookCompleteddetaildViewRoute';
 
   static getApplicationRoute() {
     return {
@@ -49,7 +50,8 @@ class AppRoute {
       booksViewRoute: (context) => const BooksDetailView(),
       searchpageViewRoute: (context) => const SearcPageView(),
       bookCompletedViewRoute: (context) => const BookCompletedView(),
-      bookCompleteddetaildViewRoute: (context) => const BookCompletedDetailView(),
+      bookCompleteddetaildViewRoute: (context) =>
+          const BookCompletedDetailView(),
     };
   }
 }

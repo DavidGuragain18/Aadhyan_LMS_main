@@ -149,8 +149,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                           Align(
                             alignment: Alignment.topLeft,
                             child: ReusableText(
-                                text:
-                                    'Quick Access for Learn Management System',
+                                text: 'Quick Access for Aadhyan',
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: kButton),
@@ -291,7 +290,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ReusableText(
-                              text: 'LearnEase',
+                              text: 'Aadhyan',
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
                               color: kLight,
@@ -382,7 +381,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
       return FileImage(File(imageUrl));
     } else {
       // Use a default image for invalid URLs
-      return AssetImage('assets/images/logo.png');
+      return AssetImage('assets/images/logo2.png');
     }
   }
 
@@ -391,7 +390,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
       return NetworkImage(imageUrl);
     } else {
       // Use a default image for invalid URLs
-      return AssetImage('assets/images/logo.png');
+      return AssetImage('assets/images/logo2.png');
     }
   }
 }

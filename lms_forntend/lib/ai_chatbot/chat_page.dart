@@ -27,7 +27,7 @@ class _ChatPageState extends State<ChatPage> {
         appBar: AppBar(
           backgroundColor: Color(kButton.value),
           title: ReusableText(
-              text: 'LearnEase ChatBOt',
+              text: 'Aadhyan ChatBOt',
               fontSize: 20,
               fontWeight: FontWeight.w500,
               color: kLight),

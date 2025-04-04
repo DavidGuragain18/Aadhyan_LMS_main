@@ -41,27 +41,31 @@ class CourseViewModel extends StateNotifier<CourseState> {
   }
 
   Future<void> selectCourse(String courseId, BuildContext context) async {
-    state = state.copyWith(isLoading: true);
+  state = state.copyWith(isLoading: true);
 
-    final result = await courseRemoteDatasource.selectCourse(courseId);
+  final result = await courseRemoteDatasource.selectCourse(courseId);
 
-    result.fold(
-      (failure) {
-        state = state.copyWith(isLoading: false, error: failure.error);
-        debugPrint('Error: ${failure.error}');
-        EasyLoading.showError('Failed to select course');
-      },
-      (success) {
-        state = state.copyWith(isLoading: false);
-        EasyLoading.showSuccess('Course Selected!');
+  result.fold(
+    (failure) {
+      state = state.copyWith(isLoading: false, error: failure.error);
+      debugPrint('Error: ${failure.error}');
+      EasyLoading.showError('Failed to select course');
+    },
+    (success) {
+      state = state.copyWith(isLoading: false);
+      EasyLoading.showSuccess('Course Selected, Go Back to Login \n Login Again');
 
-        // ⬇️ Navigate to Dashboard & clear all previous pages (including Login)
-        Navigator.pushAndRemoveUntil(
+      // Navigate only if the context is still valid and can navigate
+      if (Navigator.canPop(context)) {
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => BottomView()),
-          (route) => false, // ⚡ Clear entire navigation stack
         );
-      },
-    );
+      } else {
+        // Handle the scenario if the context is no longer valid
+        debugPrint("Cannot navigate, context is invalid.");
+      }
+    },
+  );
   }
 }

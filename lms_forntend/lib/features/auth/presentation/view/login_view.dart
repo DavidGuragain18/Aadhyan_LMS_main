@@ -259,10 +259,10 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     onPressed: () {
                       if (key.currentState!.validate()) {
                         ref.read(authViewModelProvider.notifier).login(
-                          _userNameController.text.trim(),
-                          _passwordController.text.trim(),
-                          context,
-                        );
+                              _userNameController.text.trim(),
+                              _passwordController.text.trim(),
+                              context,
+                            );
                       }
                     },
                     child: const ReusableText(
@@ -276,24 +276,24 @@ class _LoginViewState extends ConsumerState<LoginView> {
                   // if (_isBiometricLoginEnabled &&
                   //     Platform.isAndroid &&
                   //     _isBiometricAvailable)
-                    InkWell(
-                      onTap: () async {
-                        if (Platform.isAndroid || Platform.isIOS) {
-                          await _authenticateUser();
-                        } else {
-                          EasyLoading.showError(
-                            "Biometric authentication is not supported on this platform.",
-                          );
-                        }
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(_getBiometricButtonText()),
-                          const Icon(Icons.fingerprint),
-                        ],
-                      ),
+                  InkWell(
+                    onTap: () async {
+                      if (Platform.isAndroid || Platform.isIOS) {
+                        await _authenticateUser();
+                      } else {
+                        EasyLoading.showError(
+                          "Biometric authentication is not supported on this platform.",
+                        );
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(_getBiometricButtonText()),
+                        const Icon(Icons.fingerprint),
+                      ],
                     ),
+                  ),
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

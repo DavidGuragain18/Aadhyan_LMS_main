@@ -282,17 +282,18 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                           return showSnackBar(
                               message:
                                   'Passowrd do not match with confirm password',
-                              context: context, color: Colors.red);
-                        }else{
-                              final userData = AuthEntity(
-                            fullName: _fullNameController.text.trim(),
-                            email: _emailController.text.trim(),
-                            userName: _userNameController.text.trim(),
-                            phoneNumber: _phoneNumberController.text.trim(),
-                            password: _passwordController.text.trim());
-                        ref
-                            .read(authViewModelProvider.notifier)
-                            .register(userData, context);
+                              context: context,
+                              color: Colors.red);
+                        } else {
+                          final userData = AuthEntity(
+                              fullName: _fullNameController.text.trim(),
+                              email: _emailController.text.trim(),
+                              userName: _userNameController.text.trim(),
+                              phoneNumber: _phoneNumberController.text.trim(),
+                              password: _passwordController.text.trim());
+                          ref
+                              .read(authViewModelProvider.notifier)
+                              .register(userData, context);
                         }
                       }
                     },

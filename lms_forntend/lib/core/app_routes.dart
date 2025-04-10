@@ -13,12 +13,16 @@ import 'package:learn_management_system/features/competedbook/presentation/view/
 import 'package:learn_management_system/features/home/searc_page_view.dart';
 import 'package:learn_management_system/features/home/widgets_page/id_card.dart';
 import 'package:learn_management_system/features/profile/presentation/widgets/edit_profile.dart';
+import 'package:learn_management_system/features/auth/presentation/view/teacher_register_view.dart';
+import 'package:learn_management_system/features/auth/presentation/view/teacher_login_view.dart';
 
 class AppRoute {
   AppRoute._();
 
   static const String bottomViewRoute = '/bottomViewRoute';
   static const String registerViewRoute = '/registerviewroute';
+  static const String teacherRegisterRoute = '/teacher-register';
+  static const String teacherLoginRoute = '/teacher-login';
   static String loginViewRoute = '/loginViewRoute';
   static String chooseCourseRoute = '/chooseCourseRoute';
   static String gettingStartedRoute = '/gettingStartedRoute';
@@ -31,11 +35,14 @@ class AppRoute {
   static String booksViewRoute = '/booksViewRoute';
   static String searchpageViewRoute = '/searchpageViewRoute';
   static String bookCompletedViewRoute = '/bookCompletedViewRoute';
-  static String bookCompleteddetaildViewRoute = '/bookCompleteddetaildViewRoute';
+  static String bookCompleteddetaildViewRoute =
+      '/bookCompleteddetaildViewRoute';
 
   static getApplicationRoute() {
     return {
       registerViewRoute: (context) => const RegisterView(),
+      teacherRegisterRoute: (context) => const TeacherRegisterView(),
+      teacherLoginRoute: (context) => const TeacherLoginView(),
       gettingStartedRoute: (context) => const GettingStarted(),
       loginViewRoute: (context) => const LoginView(),
       dashboardViewRoute: (context) => const DashboardView(),
@@ -49,7 +56,8 @@ class AppRoute {
       booksViewRoute: (context) => const BooksDetailView(),
       searchpageViewRoute: (context) => const SearcPageView(),
       bookCompletedViewRoute: (context) => const BookCompletedView(),
-      bookCompleteddetaildViewRoute: (context) => const BookCompletedDetailView(),
+      bookCompleteddetaildViewRoute: (context) =>
+          const BookCompletedDetailView(),
     };
   }
 }
